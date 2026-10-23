@@ -1,0 +1,25 @@
+{
+  "name": "perf-suite",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/check-env.mjs",
+    "strategy": "node scripts/strategy-report.mjs",
+    "test:smoke": "node scripts/run.mjs smoke",
+    "test:load": "node scripts/run.mjs load",
+    "test:stress": "node scripts/run.mjs stress",
+    "test:spike": "node scripts/run.mjs spike",
+    "test:soak": "node scripts/run.mjs soak",
+    "test:all": "node scripts/run.mjs smoke load stress spike && npm run report",
+    "report": "node scripts/report.mjs",
+    "baseline:accept": "node scripts/compare.mjs --accept",
+    "compare": "node scripts/compare.mjs",
+    "serve": "node scripts/serve.mjs",
+    "build": "cd .. && GH_PAGES_BASE_URL=/lendly npx expo export -p web --output-dir perf/.build",
+    "test:browser": "node scripts/browser/run-all.mjs",
+    "dashboard": "node dashboard/server.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.48.0"
+  }
+}

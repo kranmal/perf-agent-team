@@ -35,7 +35,7 @@ See `perf/README.md` after the scaffold is created (`npm run test:load`, `npm ru
 |---|---|
 | `agents/` | The five agent definitions (copy to `~/.claude/agents/`) |
 | `skills/perf-k6/` | The skill, its guides, and the `perf/` scaffold (k6 config, runners, PDF builders, dashboard) |
-| `examples/lendly/` | A complete worked example: strategy PDF, results PDF, analysis, raw results, and the Playwright browser tests used for a client-only app |
+| `examples/lendly/` | Worked example: strategy PDF, results PDF and analysis at the top, plus `perf-project/`, the full `perf/` folder as run (config, k6 scripts, Playwright browser tests, local server, dashboard, all raw results) |
 | `install.sh` | Copies agents and skill into `~/.claude/` |
 
 ## Install
@@ -56,4 +56,4 @@ Overview with SLO verdict, load runs and trends, browser measurements, the strat
 
 ## Browser tests (client-only apps)
 
-For apps with no backend, k6 only checks static delivery. The real risk is in the browser, so `examples/lendly/browser-tests/` shows Playwright scripts for cold load (LCP, TBT, CLS under CPU and network throttling), data-scale (seed storage with N records, time interactions) and storage-limit probing. Copy and adapt the selectors for your app.
+For apps with no backend, k6 only checks static delivery. The real risk is in the browser, so `examples/lendly/perf-project/scripts/browser/` shows Playwright scripts for cold load (LCP, TBT, CLS under CPU and network throttling), data-scale (seed storage with N records, time interactions) and storage-limit probing. Copy and adapt the selectors for your app.

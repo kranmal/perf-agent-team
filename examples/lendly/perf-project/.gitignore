@@ -1,0 +1,5 @@
+results/*.json
+results/*.html
+!results/baseline.json
+.build/
+node_modules/

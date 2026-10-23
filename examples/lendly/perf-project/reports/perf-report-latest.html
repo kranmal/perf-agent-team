@@ -1,0 +1,62 @@
+<!doctype html><meta charset=utf-8><title>Performance test report</title><style>
+body{font:13px/1.5 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;color:#1a1d23;margin:0}
+h1{font-size:26px;margin:0 0 4px}h2{font-size:18px;margin:26px 0 8px;border-bottom:2px solid #e3e6ec;padding-bottom:4px}h3{font-size:14px;margin:16px 0 4px}
+table{border-collapse:collapse;width:100%;margin:8px 0;page-break-inside:auto}tr{page-break-inside:avoid}
+th,td{border:1px solid #d9dde5;padding:5px 8px;text-align:left;vertical-align:top}th{background:#f2f4f8}
+.pass{color:#0a7d36;font-weight:700}.fail{color:#c0271f;font-weight:700}.info{color:#6b7280}
+.cover{padding:40px 0 20px;border-bottom:4px solid #2b59c3;margin-bottom:10px}.meta{color:#555}
+.card{display:inline-block;border:1px solid #d9dde5;border-radius:6px;padding:8px 14px;margin:4px 6px 4px 0}
+.card b{display:block;font-size:20px}.bar{height:10px;background:#e3e6ec;border-radius:5px;overflow:hidden}.bar i{display:block;height:10px;background:#2b59c3}
+.note{background:#fff8e1;border-left:4px solid #f0b429;padding:8px 12px;margin:8px 0}
+code{background:#f2f4f8;padding:1px 4px;border-radius:3px}
+</style>
+<div class=cover><h1>Performance test report</h1><div class=meta>lendly · http://localhost:4173/lendly · 2026-10-22</div></div>
+<h2>1. Results at a glance</h2>
+<table><tr><th>Test</th><th>Requests</th><th>Req/s</th><th>Avg ms</th><th>p90 ms</th><th>p95 ms</th><th>p99 ms</th><th>Max ms</th><th>Errors</th><th>Peak VUs</th><th>Verdict</th></tr><tr><td><b>smoke</b></td><td>30</td><td>1.0</td><td>1.9</td><td>4.0</td><td>4.3</td><td>4.4</td><td>4.5</td><td>0.00%</td><td>1</td><td><span class=pass>PASS</span></td></tr><tr><td><b>load</b></td><td>7520</td><td>41.6</td><td>0.5</td><td>0.8</td><td>1.1</td><td>2.1</td><td>4.4</td><td>0.00%</td><td>50</td><td><span class=pass>PASS</span></td></tr></table>
+<p class=info>Stress and spike tests deliberately exceed normal load; they find limits and are not pass/fail gated.</p>
+<h2>2. SLO checks</h2><h3>smoke</h3><table><tr><th>Metric</th><th>Threshold</th><th>Result</th></tr><tr><td>http_req_failed</td><td><code>rate&lt;0.01</code></td><td><span class=pass>PASS</span></td></tr><tr><td>http_req_duration{endpoint:items}</td><td><code>p(95)&lt;100</code></td><td><span class=pass>PASS</span></td></tr><tr><td>http_req_duration{endpoint:home}</td><td><code>p(95)&lt;100</code></td><td><span class=pass>PASS</span></td></tr><tr><td>http_req_duration{endpoint:bundle}</td><td><code>p(95)&lt;250</code></td><td><span class=pass>PASS</span></td></tr><tr><td>http_req_duration{endpoint:people}</td><td><code>p(95)&lt;100</code></td><td><span class=pass>PASS</span></td></tr><tr><td>http_req_duration</td><td><code>p(95)&lt;100</code></td><td><span class=pass>PASS</span></td></tr><tr><td>http_req_duration</td><td><code>p(99)&lt;250</code></td><td><span class=pass>PASS</span></td></tr></table><h3>load</h3><table><tr><th>Metric</th><th>Threshold</th><th>Result</th></tr><tr><td>http_req_duration{endpoint:bundle}</td><td><code>p(95)&lt;250</code></td><td><span class=pass>PASS</span></td></tr><tr><td>http_req_duration{endpoint:people}</td><td><code>p(95)&lt;100</code></td><td><span class=pass>PASS</span></td></tr><tr><td>http_req_failed</td><td><code>rate&lt;0.01</code></td><td><span class=pass>PASS</span></td></tr><tr><td>http_req_duration{endpoint:items}</td><td><code>p(95)&lt;100</code></td><td><span class=pass>PASS</span></td></tr><tr><td>http_req_duration{endpoint:home}</td><td><code>p(95)&lt;100</code></td><td><span class=pass>PASS</span></td></tr><tr><td>http_req_duration</td><td><code>p(99)&lt;250</code></td><td><span class=pass>PASS</span></td></tr><tr><td>http_req_duration</td><td><code>p(95)&lt;100</code></td><td><span class=pass>PASS</span></td></tr></table>
+<h2>3. Per-endpoint latency</h2><h3>smoke</h3><table><tr><th>Endpoint</th><th>Avg ms</th><th>Median ms</th><th>p95 ms</th><th>p99 ms</th><th>Max ms</th></tr><tr><td>home</td><td>1.2</td><td>1.1</td><td>1.7</td><td>1.8</td><td>1.8</td></tr><tr><td>items</td><td>1.3</td><td>1.2</td><td>1.8</td><td>1.9</td><td>2.0</td></tr><tr><td>people</td><td>1.0</td><td>1.0</td><td>1.0</td><td>1.0</td><td>1.0</td></tr><tr><td>bundle</td><td>3.1</td><td>3.8</td><td>4.4</td><td>4.5</td><td>4.5</td></tr></table><h3>load</h3><table><tr><th>Endpoint</th><th>Avg ms</th><th>Median ms</th><th>p95 ms</th><th>p99 ms</th><th>Max ms</th></tr><tr><td>home</td><td>0.4</td><td>0.3</td><td>0.8</td><td>1.2</td><td>1.8</td></tr><tr><td>items</td><td>0.4</td><td>0.3</td><td>0.8</td><td>1.1</td><td>1.9</td></tr><tr><td>people</td><td>0.4</td><td>0.3</td><td>0.8</td><td>1.1</td><td>1.6</td></tr><tr><td>bundle</td><td>0.7</td><td>0.6</td><td>1.8</td><td>2.5</td><td>4.4</td></tr></table>
+<h2>4. Limits under stress and spike</h2><p class=info>Not run.</p>
+<h2>4b. Browser measurements</h2><h3>Cold load (empty cache; median)</h3><table><tr><th>Variant</th><th>FCP</th><th>LCP</th><th>TBT</th><th>CLS</th><th>Requests</th><th>Transfer</th><th>LCP &lt; 2.5 s, TBT &lt; 200 ms, CLS &lt; 0.1</th></tr><tr><td>desktop, ads blocked</td><td>40 ms</td><td>40 ms</td><td>0 ms</td><td>0</td><td>4</td><td>313 KB</td><td><span class=pass>PASS</span></td></tr><tr><td>phone (4x CPU, slow 4G), ads blocked</td><td>450 ms</td><td>450 ms</td><td>73.5 ms</td><td>0</td><td>4</td><td>313 KB</td><td><span class=pass>PASS</span></td></tr><tr><td>phone (4x CPU, slow 4G), with ads</td><td>452 ms</td><td>452 ms</td><td>76 ms</td><td>0</td><td>13</td><td>313 KB</td><td><span class=pass>PASS</span></td></tr></table><h3>Data scale (localStorage seeded with N loans, 30% active)</h3><table><tr><th>Profile</th><th>Loans</th><th>Startup</th><th>Tab switch</th><th>Add loan</th><th>Mark returned</th><th>Heap</th><th>DOM nodes</th><th>Add loan &lt; 100 ms</th></tr><tr><td>desktop</td><td>0</td><td>76.4 ms</td><td>39.1 ms</td><td>10.9 ms</td><td>8 ms</td><td>7.3 MB</td><td>70</td><td><span class=pass>PASS</span></td></tr><tr><td>desktop</td><td>100</td><td>104.1 ms</td><td>81.5 ms</td><td>26.2 ms</td><td>20.5 ms</td><td>9.7 MB</td><td>309</td><td><span class=pass>PASS</span></td></tr><tr><td>desktop</td><td>1,000</td><td>115.8 ms</td><td>280.4 ms</td><td>247.1 ms</td><td>237.1 ms</td><td>19.7 MB</td><td>2,469</td><td><span class=fail>FAIL</span></td></tr><tr><td>desktop</td><td>2,500</td><td>148.4 ms</td><td>1.43 s</td><td>1.96 s</td><td>1.93 s</td><td>39.4 MB</td><td>6,069</td><td><span class=fail>FAIL</span></td></tr><tr><td>desktop</td><td>5,000</td><td>209.3 ms</td><td>7.86 s</td><td>12.07 s</td><td>11.92 s</td><td>65 MB</td><td>12,069</td><td><span class=fail>FAIL</span></td></tr><tr><td>desktop</td><td>20,000</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td><span class=fail>DID NOT COMPLETE</span></td></tr><tr><td>phone-4x</td><td>0</td><td>301.7 ms</td><td>80 ms</td><td>19.8 ms</td><td>9.5 ms</td><td>6.2 MB</td><td>65</td><td><span class=pass>PASS</span></td></tr><tr><td>phone-4x</td><td>100</td><td>425.5 ms</td><td>137.4 ms</td><td>62.1 ms</td><td>45.2 ms</td><td>9.5 MB</td><td>309</td><td><span class=pass>PASS</span></td></tr><tr><td>phone-4x</td><td>1,000</td><td>585.8 ms</td><td>1.11 s</td><td>1.16 s</td><td>1.06 s</td><td>19.6 MB</td><td>2,469</td><td><span class=fail>FAIL</span></td></tr><tr><td>phone-4x</td><td>2,500</td><td>647.9 ms</td><td>5.91 s</td><td>8.30 s</td><td>8.16 s</td><td>37.8 MB</td><td>6,069</td><td><span class=fail>FAIL</span></td></tr><tr><td>phone-4x</td><td>5,000</td><td>843.4 ms</td><td>32.65 s</td><td>51.10 s</td><td>52.01 s</td><td>68.6 MB</td><td>12,069</td><td><span class=fail>FAIL</span></td></tr><tr><td>phone-4x</td><td>20,000</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td><span class=fail>DID NOT COMPLETE</span></td></tr></table><p class=info>Indicative: shared laptop CPU, CPU throttling approximates a phone, dataset sizes are assumptions.</p><h3>Storage limit</h3><p>localStorage accepted about 5.0 M characters; a write near the limit persisted.</p>
+<h2>5. Analysis and recommendations</h2><p class=info>Written by the analyst agent from the numbers above (bottlenecks, likely causes, fixes, re-test plan). See reports/analysis.md.</p>
+<pre style="white-space:pre-wrap;font:inherit"># Analysis: lendly performance
+
+## Verdict
+- **Delivery (k6, local copy of the static site): PASS.** Smoke and load (50 virtual users, 2 min hold) met every threshold: p95 about 4 ms against a 100 ms SLO, p99 about 6 ms, 0% errors, about 42 req/s. There is no server in the request path, so this only shows the static files are cheap to serve. It does not predict GitHub Pages behaviour.
+- **First load (Playwright): PASS.** Phone profile (4x CPU, slow 4G): LCP 0.45 s against 2.5 s, TBT 74 ms against 200 ms, CLS 0. One 313 KB gzipped bundle, 4 requests.
+- **Interactions at scale: FAIL beyond about 1,000 loans.** Adding a loan or marking one returned stays under 100 ms up to about 100 loans, then degrades faster than the data grows.
+
+## Dataset-size curve (median of 3 to 10 runs, 30% of loans active)
+| Loans | Desktop add loan | Phone (4x CPU) add loan | Desktop tab switch | Phone tab switch | DOM nodes |
+|---|---|---|---|---|---|
+| 0 | 11 ms | 20 ms | 39 ms | 80 ms | 70 |
+| 100 | 26 ms | 62 ms | 82 ms | 137 ms | 309 |
+| 1,000 | 247 ms | 1.2 s | 280 ms | 1.1 s | 2,469 |
+| 2,500 | 2.0 s | 8.3 s | 1.4 s | 5.9 s | 6,069 |
+| 5,000 | 12.1 s | 51.1 s | 7.9 s | 32.7 s | 12,069 |
+| 20,000 | did not complete in 90 s | did not complete in 90 s | - | - | - |
+
+Going from 1,000 to 5,000 loans (5x) makes add-loan about 49x slower on desktop and 44x on phone: close to quadratic. Startup grows gently (76 ms to 209 ms desktop, 0 to 5,000 loans), so the cost is in updates, not loading.
+
+Caveats: dataset sizes are assumptions (no usage data was available), 5,000 and 20,000 loans are far above what a personal lending tracker is likely to hold, 4x CPU throttling approximates but is not a real phone, and the laptop was shared with the test tooling. Use these as relative numbers.
+
+## Top bottlenecks
+1. **Every mutation blocks the main thread for almost the whole interaction.** Long-task time is 243 ms of the 247 ms add-loan at 1,000 loans, and 12,046 of 12,067 ms at 5,000. The UI is frozen, not waiting on I/O.
+2. **Work per update grows faster than linearly.** The strategy review flagged `src/lib/store.ts` (persist rewrites every key on each change; per-item loan lookups) and unvirtualised lists on Home, Items and People. The DOM reaching 12,069 nodes at 5,000 loans is consistent with rendering every row. These are likely causes, not profiled ones: confirm with a CPU profile before changing code.
+3. **Memory grows with data**: 65 MB heap at 5,000 loans versus 7 MB empty. Not a problem on its own.
+4. **Storage ceiling**: localStorage accepted about 5.2 million characters. The seeded 5,000-loan dataset uses about 1.1 MB, so quota is not the first limit; speed is. A write near the quota persisted without a visible error in this probe, but the app logs no warning if a real write ever fails.
+
+## Ranked fixes (not applied; the app source was not changed)
+1. Make the list screens virtualised (FlatList-style windowing or pagination), so DOM size stops growing with data.
+2. Persist only the changed collection and debounce writes, instead of rewriting all keys per mutation.
+3. Index loans by item and person (maps built once) instead of scanning on every row.
+4. Archive or collapse returned loans on Home (only active loans are needed there).
+5. Handle storage write failures visibly.
+
+## Re-test plan
+Re-run `npm run test:browser` (data-scale and cold-load) after each fix and compare against `results/browser-data-scale.json` from this run. Target: add-loan and mark-returned under 100 ms at 1,000 loans on the phone profile. Then `npm run test:load` and `npm run compare` to confirm delivery numbers did not regress. A 30-minute soak was not run; for a client-only app it is only relevant to memory growth in a long session.
+
+## Not covered
+- Real devices, native iOS and Android, the live GitHub Pages site (never load-tested), and the AdSense script cost beyond one &quot;with ads&quot; cold-load variant (adds 9 requests and about 8 MB heap, +0.14 s script time; LCP unchanged).
+</pre>
+<h2>6. Test setup</h2><p>Tool: k6. Think time 1s. Target VUs 50. Default SLO: p95 &lt; 100 ms, p99 &lt; 250 ms, error rate &lt; 1%. Raw data: <code>results/*.json</code>.</p>
