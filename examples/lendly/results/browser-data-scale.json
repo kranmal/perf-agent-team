@@ -1,0 +1,1438 @@
+{
+  "at": "2026-10-22T18:16:42.828Z",
+  "base": "http://localhost:4173/lendly/",
+  "sizes": [
+    0,
+    100,
+    1000,
+    2500,
+    5000,
+    20000
+  ],
+  "activeShare": 0.3,
+  "startupTimeoutMs": 90000,
+  "results": [
+    {
+      "profile": "desktop",
+      "loans": 0,
+      "reps": 10,
+      "completed": 10,
+      "summary": {
+        "startupMs": {
+          "median": 76.4,
+          "p95": 80.1
+        },
+        "startupLongTaskMs": {
+          "median": 0,
+          "p95": 0
+        },
+        "itemsTabMs": {
+          "median": 39.1,
+          "p95": 59.8
+        },
+        "openModalMs": {
+          "median": 18,
+          "p95": 24.9
+        },
+        "addLoanMs": {
+          "median": 10.9,
+          "p95": 16.7
+        },
+        "addLoanLongTaskMs": {
+          "median": 0,
+          "p95": 0
+        },
+        "markReturnedMs": {
+          "median": 8,
+          "p95": 9.8
+        },
+        "heapMB": {
+          "median": 7.3,
+          "p95": 7.7
+        },
+        "domNodes": {
+          "median": 70,
+          "p95": 70
+        },
+        "storageMB": {
+          "median": 0,
+          "p95": 0
+        }
+      },
+      "runs": [
+        {
+          "storageMB": 0,
+          "startupMs": 80.09999999403954,
+          "startupLongTaskMs": 0,
+          "heapMB": 7.3,
+          "domNodes": 70,
+          "itemsTabMs": 59.80000001192093,
+          "openModalMs": 24.900000005960464,
+          "addLoanMs": 16.099999994039536,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 9.800000011920929
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 76.59999999403954,
+          "startupLongTaskMs": 0,
+          "heapMB": 7.3,
+          "domNodes": 70,
+          "itemsTabMs": 37.900000005960464,
+          "openModalMs": 18.799999982118607,
+          "addLoanMs": 9.899999976158142,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 8
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 76.5,
+          "startupLongTaskMs": 0,
+          "heapMB": 7.7,
+          "domNodes": 70,
+          "itemsTabMs": 41.599999994039536,
+          "openModalMs": 9.699999988079071,
+          "addLoanMs": 16.5,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 6.699999988079071
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 76.19999998807907,
+          "startupLongTaskMs": 0,
+          "heapMB": 7.3,
+          "domNodes": 70,
+          "itemsTabMs": 39.29999998211861,
+          "openModalMs": 18.099999994039536,
+          "addLoanMs": 6.5,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 7.699999988079071
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 75,
+          "startupLongTaskMs": 0,
+          "heapMB": 7.3,
+          "domNodes": 70,
+          "itemsTabMs": 37.29999998211861,
+          "openModalMs": 18.099999994039536,
+          "addLoanMs": 10.5,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 8.200000017881393
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 76.2000000178814,
+          "startupLongTaskMs": 0,
+          "heapMB": 7.7,
+          "domNodes": 70,
+          "itemsTabMs": 35.60000002384186,
+          "openModalMs": 5.5,
+          "addLoanMs": 13.400000005960464,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 8.800000011920929
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 76.5,
+          "startupLongTaskMs": 0,
+          "heapMB": 7.3,
+          "domNodes": 70,
+          "itemsTabMs": 39.599999994039536,
+          "openModalMs": 18.099999994039536,
+          "addLoanMs": 9.900000005960464,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 5.5999999940395355
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 76.80000001192093,
+          "startupLongTaskMs": 0,
+          "heapMB": 7.7,
+          "domNodes": 70,
+          "itemsTabMs": 39,
+          "openModalMs": 17.900000005960464,
+          "addLoanMs": 9.600000023841858,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 4.0999999940395355
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 75.7000000178814,
+          "startupLongTaskMs": 0,
+          "heapMB": 7.5,
+          "domNodes": 70,
+          "itemsTabMs": 39.20000001788139,
+          "openModalMs": 17.19999998807907,
+          "addLoanMs": 11.300000011920929,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 8
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 76.2000000178814,
+          "startupLongTaskMs": 0,
+          "heapMB": 7.3,
+          "domNodes": 70,
+          "itemsTabMs": 38,
+          "openModalMs": 10,
+          "addLoanMs": 16.700000017881393,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 8
+        }
+      ]
+    },
+    {
+      "profile": "desktop",
+      "loans": 100,
+      "reps": 10,
+      "completed": 10,
+      "summary": {
+        "startupMs": {
+          "median": 104.1,
+          "p95": 107.8
+        },
+        "startupLongTaskMs": {
+          "median": 0,
+          "p95": 0
+        },
+        "itemsTabMs": {
+          "median": 81.5,
+          "p95": 82
+        },
+        "openModalMs": {
+          "median": 16.7,
+          "p95": 20.4
+        },
+        "addLoanMs": {
+          "median": 26.2,
+          "p95": 29.8
+        },
+        "addLoanLongTaskMs": {
+          "median": 0,
+          "p95": 0
+        },
+        "markReturnedMs": {
+          "median": 20.5,
+          "p95": 27
+        },
+        "heapMB": {
+          "median": 9.7,
+          "p95": 10.2
+        },
+        "domNodes": {
+          "median": 309,
+          "p95": 309
+        },
+        "storageMB": {
+          "median": 0,
+          "p95": 0
+        }
+      },
+      "runs": [
+        {
+          "storageMB": 0,
+          "startupMs": 91.30000001192093,
+          "startupLongTaskMs": 0,
+          "heapMB": 10.2,
+          "domNodes": 309,
+          "itemsTabMs": 81.5,
+          "openModalMs": 7.9000000059604645,
+          "addLoanMs": 23.5,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 25.5
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 104,
+          "startupLongTaskMs": 0,
+          "heapMB": 9.7,
+          "domNodes": 309,
+          "itemsTabMs": 81.5,
+          "openModalMs": 19,
+          "addLoanMs": 27.900000005960464,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 20.200000017881393
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 107.80000001192093,
+          "startupLongTaskMs": 0,
+          "heapMB": 9.8,
+          "domNodes": 309,
+          "itemsTabMs": 81.90000000596046,
+          "openModalMs": 17.900000005960464,
+          "addLoanMs": 25.100000023841858,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 24.30000001192093
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 104,
+          "startupLongTaskMs": 0,
+          "heapMB": 9.7,
+          "domNodes": 309,
+          "itemsTabMs": 81.5,
+          "openModalMs": 19.80000001192093,
+          "addLoanMs": 29.799999982118607,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 20.799999982118607
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 104.30000001192093,
+          "startupLongTaskMs": 0,
+          "heapMB": 9.7,
+          "domNodes": 309,
+          "itemsTabMs": 65,
+          "openModalMs": 18.400000005960464,
+          "addLoanMs": 27,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 12.900000005960464
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 104.2999999821186,
+          "startupLongTaskMs": 0,
+          "heapMB": 9.7,
+          "domNodes": 309,
+          "itemsTabMs": 81.60000002384186,
+          "openModalMs": 7.700000017881393,
+          "addLoanMs": 25.30000001192093,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 22.899999976158142
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 104.10000002384186,
+          "startupLongTaskMs": 0,
+          "heapMB": 9.7,
+          "domNodes": 309,
+          "itemsTabMs": 64.60000002384186,
+          "openModalMs": 20.400000005960464,
+          "addLoanMs": 28.5,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 17.799999982118607
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 103.69999998807907,
+          "startupLongTaskMs": 0,
+          "heapMB": 9.8,
+          "domNodes": 309,
+          "itemsTabMs": 82,
+          "openModalMs": 8.900000005960464,
+          "addLoanMs": 27.900000005960464,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 12
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 104.10000002384186,
+          "startupLongTaskMs": 0,
+          "heapMB": 9.7,
+          "domNodes": 309,
+          "itemsTabMs": 66.39999997615814,
+          "openModalMs": 15.400000005960464,
+          "addLoanMs": 21,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 14
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 90.7999999821186,
+          "startupLongTaskMs": 0,
+          "heapMB": 9.9,
+          "domNodes": 309,
+          "itemsTabMs": 65.59999999403954,
+          "openModalMs": 12.400000005960464,
+          "addLoanMs": 21.799999982118607,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 27
+        }
+      ]
+    },
+    {
+      "profile": "desktop",
+      "loans": 1000,
+      "reps": 10,
+      "completed": 10,
+      "summary": {
+        "startupMs": {
+          "median": 115.8,
+          "p95": 121.7
+        },
+        "startupLongTaskMs": {
+          "median": 0,
+          "p95": 0
+        },
+        "itemsTabMs": {
+          "median": 280.4,
+          "p95": 281.1
+        },
+        "openModalMs": {
+          "median": 23.4,
+          "p95": 26.5
+        },
+        "addLoanMs": {
+          "median": 247.1,
+          "p95": 258.5
+        },
+        "addLoanLongTaskMs": {
+          "median": 243,
+          "p95": 254
+        },
+        "markReturnedMs": {
+          "median": 237.1,
+          "p95": 243.1
+        },
+        "heapMB": {
+          "median": 19.7,
+          "p95": 19.7
+        },
+        "domNodes": {
+          "median": 2469,
+          "p95": 2469
+        },
+        "storageMB": {
+          "median": 0.2,
+          "p95": 0.2
+        }
+      },
+      "runs": [
+        {
+          "storageMB": 0.2,
+          "startupMs": 114.40000000596046,
+          "startupLongTaskMs": 0,
+          "heapMB": 19.7,
+          "domNodes": 2469,
+          "itemsTabMs": 280.7000000178814,
+          "openModalMs": 26.5,
+          "addLoanMs": 246.90000000596046,
+          "addLoanLongTaskMs": 241,
+          "markReturnedMs": 242.60000002384186
+        },
+        {
+          "storageMB": 0.2,
+          "startupMs": 119.60000002384186,
+          "startupLongTaskMs": 0,
+          "heapMB": 19.6,
+          "domNodes": 2469,
+          "itemsTabMs": 265.59999999403954,
+          "openModalMs": 17.5,
+          "addLoanMs": 247.09999999403954,
+          "addLoanLongTaskMs": 243,
+          "markReturnedMs": 234.30000001192093
+        },
+        {
+          "storageMB": 0.2,
+          "startupMs": 114.19999998807907,
+          "startupLongTaskMs": 0,
+          "heapMB": 19.6,
+          "domNodes": 2469,
+          "itemsTabMs": 265.59999999403954,
+          "openModalMs": 19.80000001192093,
+          "addLoanMs": 258.5,
+          "addLoanLongTaskMs": 254,
+          "markReturnedMs": 243.09999999403954
+        },
+        {
+          "storageMB": 0.2,
+          "startupMs": 116.59999999403954,
+          "startupLongTaskMs": 0,
+          "heapMB": 19.7,
+          "domNodes": 2469,
+          "itemsTabMs": 281.09999999403954,
+          "openModalMs": 24.900000005960464,
+          "addLoanMs": 249,
+          "addLoanLongTaskMs": 243,
+          "markReturnedMs": 234.80000001192093
+        },
+        {
+          "storageMB": 0.2,
+          "startupMs": 116,
+          "startupLongTaskMs": 0,
+          "heapMB": 19.6,
+          "domNodes": 2469,
+          "itemsTabMs": 280.59999999403954,
+          "openModalMs": 23.200000017881393,
+          "addLoanMs": 251.40000000596046,
+          "addLoanLongTaskMs": 247,
+          "markReturnedMs": 235.2000000178814
+        },
+        {
+          "storageMB": 0.2,
+          "startupMs": 116.59999999403954,
+          "startupLongTaskMs": 0,
+          "heapMB": 19.7,
+          "domNodes": 2469,
+          "itemsTabMs": 280.80000001192093,
+          "openModalMs": 18.700000017881393,
+          "addLoanMs": 246.90000000596046,
+          "addLoanLongTaskMs": 241,
+          "markReturnedMs": 237.7000000178814
+        },
+        {
+          "storageMB": 0.2,
+          "startupMs": 121.7000000178814,
+          "startupLongTaskMs": 0,
+          "heapMB": 19.7,
+          "domNodes": 2469,
+          "itemsTabMs": 281,
+          "openModalMs": 24,
+          "addLoanMs": 250.90000000596046,
+          "addLoanLongTaskMs": 246,
+          "markReturnedMs": 236.90000000596046
+        },
+        {
+          "storageMB": 0.2,
+          "startupMs": 115.69999998807907,
+          "startupLongTaskMs": 0,
+          "heapMB": 19.7,
+          "domNodes": 2469,
+          "itemsTabMs": 263.40000000596046,
+          "openModalMs": 24.299999982118607,
+          "addLoanMs": 241.30000001192093,
+          "addLoanLongTaskMs": 234,
+          "markReturnedMs": 237.30000001192093
+        },
+        {
+          "storageMB": 0.2,
+          "startupMs": 115.5,
+          "startupLongTaskMs": 0,
+          "heapMB": 19.7,
+          "domNodes": 2469,
+          "itemsTabMs": 279.80000001192093,
+          "openModalMs": 23.599999994039536,
+          "addLoanMs": 243.40000000596046,
+          "addLoanLongTaskMs": 238,
+          "markReturnedMs": 221.7000000178814
+        },
+        {
+          "storageMB": 0.2,
+          "startupMs": 114.69999998807907,
+          "startupLongTaskMs": 0,
+          "heapMB": 19.6,
+          "domNodes": 2469,
+          "itemsTabMs": 280.2999999821186,
+          "openModalMs": 22,
+          "addLoanMs": 247.10000002384186,
+          "addLoanLongTaskMs": 243,
+          "markReturnedMs": 238.7000000178814
+        }
+      ]
+    },
+    {
+      "profile": "desktop",
+      "loans": 2500,
+      "reps": 3,
+      "completed": 3,
+      "summary": {
+        "startupMs": {
+          "median": 148.4,
+          "p95": 150.7
+        },
+        "startupLongTaskMs": {
+          "median": 56,
+          "p95": 57
+        },
+        "itemsTabMs": {
+          "median": 1430.9,
+          "p95": 1446.6
+        },
+        "openModalMs": {
+          "median": 55.9,
+          "p95": 56.6
+        },
+        "addLoanMs": {
+          "median": 1963,
+          "p95": 1967.5
+        },
+        "addLoanLongTaskMs": {
+          "median": 1954,
+          "p95": 1957
+        },
+        "markReturnedMs": {
+          "median": 1932.1,
+          "p95": 1963.4
+        },
+        "heapMB": {
+          "median": 39.4,
+          "p95": 39.4
+        },
+        "domNodes": {
+          "median": 6069,
+          "p95": 6069
+        },
+        "storageMB": {
+          "median": 0.5,
+          "p95": 0.5
+        }
+      },
+      "runs": [
+        {
+          "storageMB": 0.5,
+          "startupMs": 148,
+          "startupLongTaskMs": 56,
+          "heapMB": 39.4,
+          "domNodes": 6069,
+          "itemsTabMs": 1430.9000000059605,
+          "openModalMs": 55.900000005960464,
+          "addLoanMs": 1963,
+          "addLoanLongTaskMs": 1954,
+          "markReturnedMs": 1931.7000000178814
+        },
+        {
+          "storageMB": 0.5,
+          "startupMs": 148.39999997615814,
+          "startupLongTaskMs": 56,
+          "heapMB": 39.4,
+          "domNodes": 6069,
+          "itemsTabMs": 1446.5999999940395,
+          "openModalMs": 55.599999994039536,
+          "addLoanMs": 1967.5,
+          "addLoanLongTaskMs": 1957,
+          "markReturnedMs": 1932.0999999940395
+        },
+        {
+          "storageMB": 0.5,
+          "startupMs": 150.69999998807907,
+          "startupLongTaskMs": 57,
+          "heapMB": 39.1,
+          "domNodes": 6069,
+          "itemsTabMs": 1430.5999999940395,
+          "openModalMs": 56.599999994039536,
+          "addLoanMs": 1951.699999988079,
+          "addLoanLongTaskMs": 1946,
+          "markReturnedMs": 1963.4000000059605
+        }
+      ]
+    },
+    {
+      "profile": "desktop",
+      "loans": 5000,
+      "reps": 3,
+      "completed": 3,
+      "summary": {
+        "startupMs": {
+          "median": 209.3,
+          "p95": 209.9
+        },
+        "startupLongTaskMs": {
+          "median": 110,
+          "p95": 113
+        },
+        "itemsTabMs": {
+          "median": 7864.7,
+          "p95": 8094.7
+        },
+        "openModalMs": {
+          "median": 180.5,
+          "p95": 189.7
+        },
+        "addLoanMs": {
+          "median": 12067.2,
+          "p95": 12353.4
+        },
+        "addLoanLongTaskMs": {
+          "median": 12046,
+          "p95": 12344
+        },
+        "markReturnedMs": {
+          "median": 11919.6,
+          "p95": 12298.2
+        },
+        "heapMB": {
+          "median": 65,
+          "p95": 65
+        },
+        "domNodes": {
+          "median": 12069,
+          "p95": 12069
+        },
+        "storageMB": {
+          "median": 1.1,
+          "p95": 1.1
+        }
+      },
+      "runs": [
+        {
+          "storageMB": 1.1,
+          "startupMs": 209.90000000596046,
+          "startupLongTaskMs": 113,
+          "heapMB": 64.8,
+          "domNodes": 12069,
+          "itemsTabMs": 7864.699999988079,
+          "openModalMs": 180.5,
+          "addLoanMs": 12067.200000017881,
+          "addLoanLongTaskMs": 12046,
+          "markReturnedMs": 11881.59999999404
+        },
+        {
+          "storageMB": 1.1,
+          "startupMs": 209.30000001192093,
+          "startupLongTaskMs": 110,
+          "heapMB": 65,
+          "domNodes": 12069,
+          "itemsTabMs": 7811.799999982119,
+          "openModalMs": 179.39999997615814,
+          "addLoanMs": 12054.5,
+          "addLoanLongTaskMs": 12045,
+          "markReturnedMs": 11919.59999999404
+        },
+        {
+          "storageMB": 1.1,
+          "startupMs": 208.59999999403954,
+          "startupLongTaskMs": 110,
+          "heapMB": 65,
+          "domNodes": 12069,
+          "itemsTabMs": 8094.699999988079,
+          "openModalMs": 189.69999998807907,
+          "addLoanMs": 12353.399999976158,
+          "addLoanLongTaskMs": 12344,
+          "markReturnedMs": 12298.200000017881
+        }
+      ]
+    },
+    {
+      "profile": "desktop",
+      "loans": 20000,
+      "reps": 1,
+      "completed": 0,
+      "error": "locator.click: Timeout 90000ms exceeded.",
+      "summary": {
+        "startupMs": null,
+        "startupLongTaskMs": null,
+        "itemsTabMs": null,
+        "openModalMs": null,
+        "addLoanMs": null,
+        "addLoanLongTaskMs": null,
+        "markReturnedMs": null,
+        "heapMB": null,
+        "domNodes": null,
+        "storageMB": null
+      },
+      "runs": [
+        {
+          "storageMB": 4.5,
+          "startupMs": 684.8000000119209,
+          "startupLongTaskMs": 697,
+          "heapMB": 233.6,
+          "domNodes": 48069,
+          "error": "locator.click: Timeout 90000ms exceeded."
+        }
+      ]
+    },
+    {
+      "profile": "phone-4x",
+      "loans": 0,
+      "reps": 10,
+      "completed": 10,
+      "summary": {
+        "startupMs": {
+          "median": 301.7,
+          "p95": 314.7
+        },
+        "startupLongTaskMs": {
+          "median": 137.5,
+          "p95": 139
+        },
+        "itemsTabMs": {
+          "median": 80,
+          "p95": 80.9
+        },
+        "openModalMs": {
+          "median": 25.3,
+          "p95": 27.9
+        },
+        "addLoanMs": {
+          "median": 19.8,
+          "p95": 20.3
+        },
+        "addLoanLongTaskMs": {
+          "median": 0,
+          "p95": 0
+        },
+        "markReturnedMs": {
+          "median": 9.5,
+          "p95": 10
+        },
+        "heapMB": {
+          "median": 6.2,
+          "p95": 6.2
+        },
+        "domNodes": {
+          "median": 65,
+          "p95": 65
+        },
+        "storageMB": {
+          "median": 0,
+          "p95": 0
+        }
+      },
+      "runs": [
+        {
+          "storageMB": 0,
+          "startupMs": 314.7000000178814,
+          "startupLongTaskMs": 137,
+          "heapMB": 6.1,
+          "domNodes": 65,
+          "itemsTabMs": 80.40000000596046,
+          "openModalMs": 27.900000005960464,
+          "addLoanMs": 20.100000023841858,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 9.699999988079071
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 303.5,
+          "startupLongTaskMs": 137,
+          "heapMB": 6.2,
+          "domNodes": 65,
+          "itemsTabMs": 80,
+          "openModalMs": 26.19999998807907,
+          "addLoanMs": 20.30000001192093,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 10
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 301.7999999821186,
+          "startupLongTaskMs": 138,
+          "heapMB": 6.2,
+          "domNodes": 65,
+          "itemsTabMs": 80.69999998807907,
+          "openModalMs": 24.69999998807907,
+          "addLoanMs": 19.900000005960464,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 8.900000005960464
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 303.90000000596046,
+          "startupLongTaskMs": 139,
+          "heapMB": 6.2,
+          "domNodes": 65,
+          "itemsTabMs": 80.89999997615814,
+          "openModalMs": 25.19999998807907,
+          "addLoanMs": 20.200000017881393,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 9.200000017881393
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 301,
+          "startupLongTaskMs": 138,
+          "heapMB": 6.2,
+          "domNodes": 65,
+          "itemsTabMs": 78.80000001192093,
+          "openModalMs": 24.5,
+          "addLoanMs": 19,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 9.699999988079071
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 301.59999999403954,
+          "startupLongTaskMs": 137,
+          "heapMB": 6.1,
+          "domNodes": 65,
+          "itemsTabMs": 79.59999999403954,
+          "openModalMs": 25.700000017881393,
+          "addLoanMs": 19,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 9
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 301.90000000596046,
+          "startupLongTaskMs": 139,
+          "heapMB": 6.2,
+          "domNodes": 65,
+          "itemsTabMs": 79.5,
+          "openModalMs": 25.30000001192093,
+          "addLoanMs": 19.400000005960464,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 9.900000005960464
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 279.59999999403954,
+          "startupLongTaskMs": 138,
+          "heapMB": 6,
+          "domNodes": 65,
+          "itemsTabMs": 78.90000000596046,
+          "openModalMs": 24.5,
+          "addLoanMs": 19,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 9.099999994039536
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 297.80000001192093,
+          "startupLongTaskMs": 137,
+          "heapMB": 6.2,
+          "domNodes": 65,
+          "itemsTabMs": 80.09999999403954,
+          "openModalMs": 24.799999982118607,
+          "addLoanMs": 19.799999982118607,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 9
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 293.60000002384186,
+          "startupLongTaskMs": 134,
+          "heapMB": 6.2,
+          "domNodes": 65,
+          "itemsTabMs": 80.59999999403954,
+          "openModalMs": 25.30000001192093,
+          "addLoanMs": 20,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 10
+        }
+      ]
+    },
+    {
+      "profile": "phone-4x",
+      "loans": 100,
+      "reps": 10,
+      "completed": 10,
+      "summary": {
+        "startupMs": {
+          "median": 425.5,
+          "p95": 443.8
+        },
+        "startupLongTaskMs": {
+          "median": 197,
+          "p95": 210
+        },
+        "itemsTabMs": {
+          "median": 137.4,
+          "p95": 178
+        },
+        "openModalMs": {
+          "median": 32.3,
+          "p95": 37.6
+        },
+        "addLoanMs": {
+          "median": 62.1,
+          "p95": 73.6
+        },
+        "addLoanLongTaskMs": {
+          "median": 53.5,
+          "p95": 62
+        },
+        "markReturnedMs": {
+          "median": 45.2,
+          "p95": 54.6
+        },
+        "heapMB": {
+          "median": 9.5,
+          "p95": 9.5
+        },
+        "domNodes": {
+          "median": 309,
+          "p95": 309
+        },
+        "storageMB": {
+          "median": 0,
+          "p95": 0
+        }
+      },
+      "runs": [
+        {
+          "storageMB": 0,
+          "startupMs": 383,
+          "startupLongTaskMs": 136,
+          "heapMB": 9.5,
+          "domNodes": 309,
+          "itemsTabMs": 128.2000000178814,
+          "openModalMs": 26.099999994039536,
+          "addLoanMs": 52.60000002384186,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 39.80000001192093
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 392.10000002384186,
+          "startupLongTaskMs": 137,
+          "heapMB": 9.5,
+          "domNodes": 309,
+          "itemsTabMs": 113.80000001192093,
+          "openModalMs": 29,
+          "addLoanMs": 56.900000005960464,
+          "addLoanLongTaskMs": 0,
+          "markReturnedMs": 44.69999998807907
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 429.19999998807907,
+          "startupLongTaskMs": 150,
+          "heapMB": 9.4,
+          "domNodes": 309,
+          "itemsTabMs": 128.90000000596046,
+          "openModalMs": 34,
+          "addLoanMs": 58.900000005960464,
+          "addLoanLongTaskMs": 51,
+          "markReturnedMs": 44.19999998807907
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 414.7000000178814,
+          "startupLongTaskMs": 196,
+          "heapMB": 9.5,
+          "domNodes": 309,
+          "itemsTabMs": 144,
+          "openModalMs": 28.400000005960464,
+          "addLoanMs": 73.60000002384186,
+          "addLoanLongTaskMs": 61,
+          "markReturnedMs": 51.30000001192093
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 428.90000000596046,
+          "startupLongTaskMs": 202,
+          "heapMB": 9.5,
+          "domNodes": 309,
+          "itemsTabMs": 144.59999999403954,
+          "openModalMs": 31.900000005960464,
+          "addLoanMs": 65.09999999403954,
+          "addLoanLongTaskMs": 58,
+          "markReturnedMs": 45.30000001192093
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 422,
+          "startupLongTaskMs": 201,
+          "heapMB": 8.9,
+          "domNodes": 309,
+          "itemsTabMs": 146.69999998807907,
+          "openModalMs": 28.30000001192093,
+          "addLoanMs": 59.099999994039536,
+          "addLoanLongTaskMs": 52,
+          "markReturnedMs": 54.599999994039536
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 443.80000001192093,
+          "startupLongTaskMs": 210,
+          "heapMB": 8.8,
+          "domNodes": 309,
+          "itemsTabMs": 130.7999999821186,
+          "openModalMs": 36.599999994039536,
+          "addLoanMs": 58.69999998807907,
+          "addLoanLongTaskMs": 52,
+          "markReturnedMs": 54.5
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 403.09999999403954,
+          "startupLongTaskMs": 138,
+          "heapMB": 9.5,
+          "domNodes": 309,
+          "itemsTabMs": 129.10000002384186,
+          "openModalMs": 32.79999998211861,
+          "addLoanMs": 66.40000000596046,
+          "addLoanLongTaskMs": 55,
+          "markReturnedMs": 44
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 430.80000001192093,
+          "startupLongTaskMs": 207,
+          "heapMB": 9.5,
+          "domNodes": 309,
+          "itemsTabMs": 178,
+          "openModalMs": 35.70000001788139,
+          "addLoanMs": 66.40000000596046,
+          "addLoanLongTaskMs": 55,
+          "markReturnedMs": 45
+        },
+        {
+          "storageMB": 0,
+          "startupMs": 430.59999999403954,
+          "startupLongTaskMs": 198,
+          "heapMB": 9.5,
+          "domNodes": 309,
+          "itemsTabMs": 144.09999999403954,
+          "openModalMs": 37.60000002384186,
+          "addLoanMs": 68.30000001192093,
+          "addLoanLongTaskMs": 62,
+          "markReturnedMs": 53.099999994039536
+        }
+      ]
+    },
+    {
+      "profile": "phone-4x",
+      "loans": 1000,
+      "reps": 10,
+      "completed": 10,
+      "summary": {
+        "startupMs": {
+          "median": 585.8,
+          "p95": 648.8
+        },
+        "startupLongTaskMs": {
+          "median": 350.5,
+          "p95": 376
+        },
+        "itemsTabMs": {
+          "median": 1111.7,
+          "p95": 1257.9
+        },
+        "openModalMs": {
+          "median": 93.7,
+          "p95": 111.3
+        },
+        "addLoanMs": {
+          "median": 1156.1,
+          "p95": 1310.7
+        },
+        "addLoanLongTaskMs": {
+          "median": 1137,
+          "p95": 1295
+        },
+        "markReturnedMs": {
+          "median": 1059.7,
+          "p95": 1148
+        },
+        "heapMB": {
+          "median": 19.6,
+          "p95": 19.9
+        },
+        "domNodes": {
+          "median": 2469,
+          "p95": 2469
+        },
+        "storageMB": {
+          "median": 0.2,
+          "p95": 0.2
+        }
+      },
+      "runs": [
+        {
+          "storageMB": 0.2,
+          "startupMs": 648.7999999821186,
+          "startupLongTaskMs": 376,
+          "heapMB": 19.6,
+          "domNodes": 2469,
+          "itemsTabMs": 1227.300000011921,
+          "openModalMs": 111.30000001192093,
+          "addLoanMs": 1167.2999999821186,
+          "addLoanLongTaskMs": 1139,
+          "markReturnedMs": 1097.0999999940395
+        },
+        {
+          "storageMB": 0.2,
+          "startupMs": 564.5,
+          "startupLongTaskMs": 340,
+          "heapMB": 19.6,
+          "domNodes": 2469,
+          "itemsTabMs": 1112.300000011921,
+          "openModalMs": 82,
+          "addLoanMs": 1157.2000000178814,
+          "addLoanLongTaskMs": 1136,
+          "markReturnedMs": 1107.800000011921
+        },
+        {
+          "storageMB": 0.2,
+          "startupMs": 597.6999999880791,
+          "startupLongTaskMs": 372,
+          "heapMB": 19.6,
+          "domNodes": 2469,
+          "itemsTabMs": 1209.5,
+          "openModalMs": 101.19999998807907,
+          "addLoanMs": 1154.9000000059605,
+          "addLoanLongTaskMs": 1138,
+          "markReturnedMs": 1127.5999999940395
+        },
+        {
+          "storageMB": 0.2,
+          "startupMs": 580.7999999821186,
+          "startupLongTaskMs": 357,
+          "heapMB": 19.6,
+          "domNodes": 2469,
+          "itemsTabMs": 1111.0999999940395,
+          "openModalMs": 91.89999997615814,
+          "addLoanMs": 1147.699999988079,
+          "addLoanLongTaskMs": 1136,
+          "markReturnedMs": 1009.8999999761581
+        },
+        {
+          "storageMB": 0.2,
+          "startupMs": 517.8999999761581,
+          "startupLongTaskMs": 316,
+          "heapMB": 19.9,
+          "domNodes": 2469,
+          "itemsTabMs": 1041.9000000059605,
+          "openModalMs": 98.2999999821186,
+          "addLoanMs": 1310.699999988079,
+          "addLoanLongTaskMs": 1295,
+          "markReturnedMs": 1148
+        },
+        {
+          "storageMB": 0.2,
+          "startupMs": 612.8000000119209,
+          "startupLongTaskMs": 371,
+          "heapMB": 19.7,
+          "domNodes": 2469,
+          "itemsTabMs": 1257.9000000059605,
+          "openModalMs": 100.89999997615814,
+          "addLoanMs": 1210.9000000059605,
+          "addLoanLongTaskMs": 1188,
+          "markReturnedMs": 1123.5999999940395
+        },
+        {
+          "storageMB": 0.2,
+          "startupMs": 595.6999999880791,
+          "startupLongTaskMs": 352,
+          "heapMB": 19.7,
+          "domNodes": 2469,
+          "itemsTabMs": 1179.2999999821186,
+          "openModalMs": 95.5,
+          "addLoanMs": 1160.300000011921,
+          "addLoanLongTaskMs": 1147,
+          "markReturnedMs": 928.5999999940395
+        },
+        {
+          "storageMB": 0.2,
+          "startupMs": 528.6999999880791,
+          "startupLongTaskMs": 340,
+          "heapMB": 19.6,
+          "domNodes": 2469,
+          "itemsTabMs": 1078.9000000059605,
+          "openModalMs": 87.7000000178814,
+          "addLoanMs": 1090.5,
+          "addLoanLongTaskMs": 1077,
+          "markReturnedMs": 953.4000000059605
+        },
+        {
+          "storageMB": 0.2,
+          "startupMs": 509,
+          "startupLongTaskMs": 253,
+          "heapMB": 19.6,
+          "domNodes": 2469,
+          "itemsTabMs": 996.5,
+          "openModalMs": 86,
+          "addLoanMs": 1068.4000000059605,
+          "addLoanLongTaskMs": 1048,
+          "markReturnedMs": 982.4000000059605
+        },
+        {
+          "storageMB": 0.2,
+          "startupMs": 590.7999999821186,
+          "startupLongTaskMs": 349,
+          "heapMB": 19.6,
+          "domNodes": 2469,
+          "itemsTabMs": 1043.0999999940395,
+          "openModalMs": 84.80000001192093,
+          "addLoanMs": 1016.3999999761581,
+          "addLoanLongTaskMs": 1000,
+          "markReturnedMs": 1022.2000000178814
+        }
+      ]
+    },
+    {
+      "profile": "phone-4x",
+      "loans": 2500,
+      "reps": 3,
+      "completed": 3,
+      "summary": {
+        "startupMs": {
+          "median": 647.9,
+          "p95": 666.8
+        },
+        "startupLongTaskMs": {
+          "median": 508,
+          "p95": 540
+        },
+        "itemsTabMs": {
+          "median": 5909.9,
+          "p95": 5989.1
+        },
+        "openModalMs": {
+          "median": 228.4,
+          "p95": 231.6
+        },
+        "addLoanMs": {
+          "median": 8303.1,
+          "p95": 8469.1
+        },
+        "addLoanLongTaskMs": {
+          "median": 8276,
+          "p95": 8431
+        },
+        "markReturnedMs": {
+          "median": 8157.3,
+          "p95": 8215.7
+        },
+        "heapMB": {
+          "median": 37.8,
+          "p95": 37.8
+        },
+        "domNodes": {
+          "median": 6069,
+          "p95": 6069
+        },
+        "storageMB": {
+          "median": 0.5,
+          "p95": 0.5
+        }
+      },
+      "runs": [
+        {
+          "storageMB": 0.5,
+          "startupMs": 666.8000000119209,
+          "startupLongTaskMs": 540,
+          "heapMB": 37.7,
+          "domNodes": 6069,
+          "itemsTabMs": 5909.9000000059605,
+          "openModalMs": 226.80000001192093,
+          "addLoanMs": 8469.100000023842,
+          "addLoanLongTaskMs": 8431,
+          "markReturnedMs": 8215.699999988079
+        },
+        {
+          "storageMB": 0.5,
+          "startupMs": 647.9000000059605,
+          "startupLongTaskMs": 508,
+          "heapMB": 37.8,
+          "domNodes": 6069,
+          "itemsTabMs": 5876.0999999940395,
+          "openModalMs": 228.40000000596046,
+          "addLoanMs": 8183.300000011921,
+          "addLoanLongTaskMs": 8156,
+          "markReturnedMs": 8075.399999976158
+        },
+        {
+          "storageMB": 0.5,
+          "startupMs": 618.7000000178814,
+          "startupLongTaskMs": 441,
+          "heapMB": 37.8,
+          "domNodes": 6069,
+          "itemsTabMs": 5989.0999999940395,
+          "openModalMs": 231.59999999403954,
+          "addLoanMs": 8303.09999999404,
+          "addLoanLongTaskMs": 8276,
+          "markReturnedMs": 8157.300000011921
+        }
+      ]
+    },
+    {
+      "profile": "phone-4x",
+      "loans": 5000,
+      "reps": 3,
+      "completed": 3,
+      "summary": {
+        "startupMs": {
+          "median": 843.4,
+          "p95": 857.3
+        },
+        "startupLongTaskMs": {
+          "median": 783,
+          "p95": 784
+        },
+        "itemsTabMs": {
+          "median": 32651.8,
+          "p95": 32655
+        },
+        "openModalMs": {
+          "median": 748.9,
+          "p95": 753.8
+        },
+        "addLoanMs": {
+          "median": 51104.3,
+          "p95": 51259.3
+        },
+        "addLoanLongTaskMs": {
+          "median": 51067,
+          "p95": 51216
+        },
+        "markReturnedMs": {
+          "median": 52012.8,
+          "p95": 52039.2
+        },
+        "heapMB": {
+          "median": 68.6,
+          "p95": 69.6
+        },
+        "domNodes": {
+          "median": 12069,
+          "p95": 12069
+        },
+        "storageMB": {
+          "median": 1.1,
+          "p95": 1.1
+        }
+      },
+      "runs": [
+        {
+          "storageMB": 1.1,
+          "startupMs": 843.3999999761581,
+          "startupLongTaskMs": 783,
+          "heapMB": 68.6,
+          "domNodes": 12069,
+          "itemsTabMs": 32655,
+          "openModalMs": 748.9000000059605,
+          "addLoanMs": 51104.30000001192,
+          "addLoanLongTaskMs": 51067,
+          "markReturnedMs": 52039.20000001788
+        },
+        {
+          "storageMB": 1.1,
+          "startupMs": 857.2999999821186,
+          "startupLongTaskMs": 784,
+          "heapMB": 64.8,
+          "domNodes": 12069,
+          "itemsTabMs": 32469.09999999404,
+          "openModalMs": 723.4000000059605,
+          "addLoanMs": 51259.29999998212,
+          "addLoanLongTaskMs": 51216,
+          "markReturnedMs": 51593.5
+        },
+        {
+          "storageMB": 1.1,
+          "startupMs": 817.8000000119209,
+          "startupLongTaskMs": 753,
+          "heapMB": 69.6,
+          "domNodes": 12069,
+          "itemsTabMs": 32651.79999998212,
+          "openModalMs": 753.8000000119209,
+          "addLoanMs": 50930.79999998212,
+          "addLoanLongTaskMs": 50889,
+          "markReturnedMs": 52012.79999998212
+        }
+      ]
+    },
+    {
+      "profile": "phone-4x",
+      "loans": 20000,
+      "reps": 1,
+      "completed": 0,
+      "error": "locator.click: Timeout 90000ms exceeded.",
+      "summary": {
+        "startupMs": null,
+        "startupLongTaskMs": null,
+        "itemsTabMs": null,
+        "openModalMs": null,
+        "addLoanMs": null,
+        "addLoanLongTaskMs": null,
+        "markReturnedMs": null,
+        "heapMB": null,
+        "domNodes": null,
+        "storageMB": null
+      },
+      "runs": [
+        {
+          "storageMB": 4.5,
+          "startupMs": 2667.199999988079,
+          "startupLongTaskMs": 3009,
+          "heapMB": 230.2,
+          "domNodes": 48069,
+          "error": "locator.click: Timeout 90000ms exceeded."
+        }
+      ]
+    }
+  ]
+}

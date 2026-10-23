@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-22T18:16:51.894Z",
+  "base": "http://localhost:4173/lendly/",
+  "quota": {
+    "acceptedChars": 5222400,
+    "error": "QuotaExceededError"
+  },
+  "nearLimit": {
+    "uiState": "ok",
+    "persisted": true,
+    "errors": [
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED"
+    ]
+  }
+}

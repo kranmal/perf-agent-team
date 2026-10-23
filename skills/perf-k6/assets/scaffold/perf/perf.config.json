@@ -1,0 +1,28 @@
+{
+  "project": "{{PROJECT_NAME}}",
+  "baseUrl": "http://localhost:3000",
+  "allowRemote": false,
+  "remoteHostsAllowed": [],
+  "headers": {},
+  "targetVus": 20,
+  "thinkTimeSeconds": 1,
+  "defaultSlo": { "p95Ms": 800, "p99Ms": 1500, "errorRate": 0.01 },
+  "endpoints": [
+    {
+      "name": "home",
+      "method": "GET",
+      "path": "/",
+      "expectStatus": 200,
+      "weight": 1,
+      "slo": { "p95Ms": 500 }
+    }
+  ],
+  "profiles": {
+    "smoke":  { "vus": 1, "duration": "30s" },
+    "load":   { "rampUp": "2m", "hold": "5m", "rampDown": "1m", "vusFactor": 1 },
+    "stress": { "stepDuration": "2m", "steps": [1, 2, 3, 4], "cooldown": "1m" },
+    "spike":  { "baselineFactor": 0.25, "spikeFactor": 5, "spikeHold": "1m", "recoverHold": "2m" },
+    "soak":   { "rampUp": "2m", "hold": "30m", "rampDown": "1m", "vusFactor": 0.7 }
+  },
+  "regressionTolerance": { "p95Pct": 15, "errorRateAbs": 0.005, "rpsPct": 15 }
+}
