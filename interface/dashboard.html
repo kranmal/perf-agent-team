@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Perf Agent Team</title>
+<style>
+/* Palette: #7C0E44 #AA5E7A #D49A9A #F2DACE */
+:root{
+  --wine:#7C0E44; --rose:#AA5E7A; --blush:#D49A9A; --cream:#F2DACE;
+  --bg:#f8ece5; --bg2:#f2dace; --panel:rgba(255,255,255,.72); --panel-solid:#fffaf7;
+  --ink:#2b0d1a; --muted:#7a5566; --line:rgba(124,14,68,.14); --line-strong:rgba(124,14,68,.28);
+  --accent:#7C0E44; --accent-ink:#fff; --accent-soft:rgba(124,14,68,.08);
+  --ok:#2e7d5b; --bad:#b3261e; --warn:#a4651a; --run:#AA5E7A;
+  --shadow:0 1px 2px rgba(124,14,68,.06),0 8px 30px rgba(124,14,68,.08);
+  --r:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1a0912; --bg2:#2a0f1d; --panel:rgba(48,20,34,.66); --panel-solid:#2a111e;
+    --ink:#f6e6de; --muted:#c79aa8; --line:rgba(242,218,206,.12); --line-strong:rgba(242,218,206,.26);
+    --accent:#D49A9A; --accent-ink:#2b0d1a; --accent-soft:rgba(212,154,154,.12);
+    --ok:#6fcf9f; --bad:#ff8f87; --warn:#e6b15f; --run:#D49A9A;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 34px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1a0912; --bg2:#2a0f1d; --panel:rgba(48,20,34,.66); --panel-solid:#2a111e;
+  --ink:#f6e6de; --muted:#c79aa8; --line:rgba(242,218,206,.12); --line-strong:rgba(242,218,206,.26);
+  --accent:#D49A9A; --accent-ink:#2b0d1a; --accent-soft:rgba(212,154,154,.12);
+  --ok:#6fcf9f; --bad:#ff8f87; --warn:#e6b15f; --run:#D49A9A;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 34px rgba(0,0,0,.35);
+}
+/* Mono palette: greys only, so nothing depends on hue. Status is carried by glyph and label. */
+:root[data-palette="mono"]{
+  --wine:#2e2e2e; --rose:#6c6c6c; --blush:#bdbdbb; --cream:#ecece9;
+  --bg:#f3f3f1; --bg2:#e9e9e6; --panel:rgba(255,255,255,.78); --panel-solid:#fcfcfb;
+  --ink:#1d1d1d; --muted:#585858; --line:rgba(0,0,0,.14); --line-strong:rgba(0,0,0,.34);
+  --accent:#2e2e2e; --accent-ink:#fff; --accent-soft:rgba(0,0,0,.055);
+  --ok:#1d1d1d; --bad:#1d1d1d; --warn:#3d3d3d; --run:#4a4a4a;
+  --shadow:0 1px 2px rgba(0,0,0,.06),0 8px 26px rgba(0,0,0,.07);
+}
+@media (prefers-color-scheme: dark){
+  :root[data-palette="mono"]:not([data-theme="light"]){
+    --wine:#d6d6d3; --rose:#8d8d8d; --blush:#5a5a5a; --cream:#2a2a2a;
+    --bg:#151515; --bg2:#1c1c1c; --panel:rgba(34,34,34,.78); --panel-solid:#1f1f1f;
+    --ink:#e8e8e5; --muted:#a3a3a0; --line:rgba(255,255,255,.14); --line-strong:rgba(255,255,255,.34);
+    --accent:#e8e8e5; --accent-ink:#151515; --accent-soft:rgba(255,255,255,.07);
+    --ok:#e8e8e5; --bad:#e8e8e5; --warn:#cfcfcc; --run:#c4c4c1;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.4);
+  }
+}
+:root[data-palette="mono"][data-theme="dark"]{
+  --wine:#d6d6d3; --rose:#8d8d8d; --blush:#5a5a5a; --cream:#2a2a2a;
+  --bg:#151515; --bg2:#1c1c1c; --panel:rgba(34,34,34,.78); --panel-solid:#1f1f1f;
+  --ink:#e8e8e5; --muted:#a3a3a0; --line:rgba(255,255,255,.14); --line-strong:rgba(255,255,255,.34);
+  --accent:#e8e8e5; --accent-ink:#151515; --accent-soft:rgba(255,255,255,.07);
+  --ok:#e8e8e5; --bad:#e8e8e5; --warn:#cfcfcc; --run:#c4c4c1;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.4);
+}
+:root[data-palette="mono"] .logo{color:var(--accent-ink);box-shadow:none}
+:root[data-palette="mono"] .ext{color:var(--accent-ink)}
+:root[data-palette="mono"] body{background:linear-gradient(var(--bg),var(--bg2))}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--ink);min-height:100vh;
+  font:15px/1.5 -apple-system,BlinkMacSystemFont,"SF Pro Text","Inter","Segoe UI",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;letter-spacing:-.011em;
+  background:
+    radial-gradient(900px 500px at 8% -10%,color-mix(in srgb,var(--blush) 45%,transparent),transparent 60%),
+    radial-gradient(700px 420px at 100% 0%,color-mix(in srgb,var(--rose) 30%,transparent),transparent 60%),
+    linear-gradient(var(--bg),var(--bg2));
+  background-attachment:fixed}
+h1,h2,h3{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter",system-ui,sans-serif}
+
+/* top bar */
+header{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:12px;padding:12px 24px;
+  background:var(--panel);backdrop-filter:saturate(180%) blur(22px);-webkit-backdrop-filter:saturate(180%) blur(22px);
+  border-bottom:1px solid var(--line)}
+.logo{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;color:#fff;font-weight:700;font-size:13px;
+  background:linear-gradient(145deg,var(--rose),var(--wine));box-shadow:0 2px 8px rgba(124,14,68,.35),inset 0 1px 0 rgba(255,255,255,.35)}
+header h1{font-size:17px;font-weight:650;letter-spacing:-.02em;margin:0;flex:1}
+header h1 small{font-weight:500;color:var(--muted);margin-left:8px;font-size:13px}
+.iconbtn{background:var(--accent-soft);border:1px solid var(--line);color:var(--ink);border-radius:99px;padding:6px 14px;
+  font:inherit;font-size:13px;font-weight:500;cursor:pointer;transition:.18s}
+.iconbtn:hover{border-color:var(--line-strong);transform:translateY(-1px)}
+
+main{display:grid;grid-template-columns:340px 1fr;gap:20px;padding:24px;max-width:1280px;margin:0 auto}
+@media(max-width:860px){main{grid-template-columns:1fr;padding:16px}}
+
+.card{background:var(--panel);backdrop-filter:saturate(160%) blur(18px);-webkit-backdrop-filter:saturate(160%) blur(18px);
+  border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow)}
+.card+.card{margin-top:16px}
+.card h2{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+.title{font-size:22px;font-weight:700;letter-spacing:-.03em;margin:0;overflow-wrap:anywhere}
+
+/* form */
+label{display:block;font-size:12.5px;font-weight:500;color:var(--muted);margin:14px 0 6px}
+input,textarea,select{width:100%;background:var(--panel-solid);color:var(--ink);border:1px solid var(--line);border-radius:12px;
+  padding:10px 12px;font:inherit;transition:.15s}
+textarea{min-height:68px;resize:vertical}
+input:focus,textarea:focus,select:focus,.seg input:focus-visible+span,button:focus-visible,a:focus-visible{
+  outline:none;border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
+::placeholder{color:color-mix(in srgb,var(--muted) 65%,transparent)}
+.seg{display:grid;grid-template-columns:1fr 1fr;background:var(--accent-soft);border:1px solid var(--line);border-radius:12px;padding:3px;gap:3px}
+.seg label{margin:0;position:relative;cursor:pointer}
+.seg input{position:absolute;opacity:0;inset:0;width:100%;height:100%;cursor:pointer}
+.seg span{display:block;text-align:center;padding:7px 6px;border-radius:9px;font-size:13px;font-weight:550;color:var(--muted);transition:.18s}
+.seg input:checked+span{background:var(--panel-solid);color:var(--accent);box-shadow:0 1px 3px rgba(0,0,0,.15)}
+button.primary{margin-top:16px;width:100%;border:0;border-radius:12px;padding:11px;font:inherit;font-weight:600;cursor:pointer;
+  color:var(--accent-ink);background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 88%,#fff),var(--accent));
+  box-shadow:0 4px 14px color-mix(in srgb,var(--accent) 38%,transparent),inset 0 1px 0 rgba(255,255,255,.25);transition:.18s}
+button.primary:hover{transform:translateY(-1px)}
+button.primary:active{transform:scale(.985)}
+button.primary:disabled{opacity:.5;cursor:default;transform:none}
+button.danger{background:none;border:1px solid var(--bad);color:var(--bad);border-radius:99px;padding:5px 14px;font:inherit;font-size:13px;font-weight:550;cursor:pointer;transition:.18s}
+button.danger:hover{background:color-mix(in srgb,var(--bad) 12%,transparent)}
+details.adv{margin-top:14px;border:1px solid var(--line);border-radius:12px;padding:0 12px;background:var(--accent-soft)}
+details.adv summary{cursor:pointer;padding:10px 0;font-size:13px;font-weight:550;color:var(--muted);list-style:none;display:flex;justify-content:space-between}
+details.adv summary::-webkit-details-marker{display:none}
+details.adv summary::after{content:"+";font-weight:700}
+details.adv[open] summary::after{content:"\2212"}
+details.adv[open] summary{color:var(--ink)}
+details.adv .grid{display:grid;grid-template-columns:1fr 1fr;gap:0 10px;padding-bottom:12px}
+details.adv .grid .full{grid-column:1/-1}
+details.adv label{margin-top:4px}
+details.adv .hint{font-size:12px;color:var(--muted);margin:4px 0 0}
+#formerr{color:var(--bad);font-size:13px;margin-top:8px}
+
+/* run list */
+.runs{list-style:none;margin:20px 0 0;padding:0}
+.runs-h{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:22px 4px 8px}
+.runs li{padding:11px 13px;border:1px solid var(--line);border-radius:14px;margin-bottom:8px;cursor:pointer;
+  background:var(--panel);transition:.18s;position:relative}
+.runs li:hover{transform:translateY(-1px);border-color:var(--line-strong)}
+.runs li.sel{border-color:var(--accent);background:var(--panel-solid);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 16%,transparent)}
+.runs .t{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.runs .s{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px;margin-top:2px}
+
+/* status */
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;border-radius:99px;padding:2px 10px 2px 8px;
+  background:color-mix(in srgb,currentColor 12%,transparent)}
+.pill::before,.dot::before{content:"●";font-size:10px;line-height:1;font-weight:700}
+.running{color:var(--run)}.succeeded,.done{color:var(--ok)}.failed,.interrupted{color:var(--bad)}.cancelled{color:var(--warn)}
+.pill.running::before,.dot.running::before{content:"◐"}
+.pill.succeeded::before,.dot.done::before,.dot.succeeded::before{content:"✓"}
+.pill.failed::before,.dot.failed::before{content:"✕"}
+.pill.interrupted::before,.dot.interrupted::before{content:"!"}
+.pill.cancelled::before,.dot.cancelled::before{content:"⊘"}
+.pill.running::before,.dot.running::before{animation:pulse 1.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.grow{flex:1;min-width:0}
+.sub{color:var(--muted);font-size:13px;margin-top:4px;overflow-wrap:anywhere}
+
+/* stat tiles */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:16px 0 4px}
+.stat{background:var(--accent-soft);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.stat b{display:block;font-size:24px;font-weight:700;letter-spacing:-.03em;line-height:1.1;font-variant-numeric:tabular-nums}
+.stat small{color:var(--muted);font-size:12px}
+
+/* agents */
+.agents{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 4px}
+.agent{border:1px solid var(--line);border-radius:12px;padding:7px 12px;font-size:13px;background:var(--panel-solid);display:flex;gap:8px;align-items:flex-start}
+.agent small{display:block;color:var(--muted);font-size:12px;max-width:260px}
+.dot{font-size:10px;line-height:20px}
+
+pre{white-space:pre-wrap;word-break:break-word;background:var(--panel-solid);border:1px solid var(--line);border-radius:12px;padding:12px;
+  font:12.5px/1.55 ui-monospace,"SF Mono",Menlo,monospace;max-height:280px;overflow:auto;margin:6px 0}
+.tl{max-height:280px;overflow:auto;font-size:13px;border-left:2px solid var(--line-strong);padding-left:14px;margin-left:4px}
+.tl div{padding:3px 0;color:var(--muted);position:relative}
+.tl div::before{content:"";position:absolute;left:-19px;top:11px;width:8px;height:8px;border-radius:50%;background:var(--blush);border:2px solid var(--panel-solid)}
+.tl .agent-k{color:var(--ink);font-weight:500}.tl .agent-k::before{background:var(--wine)}
+.tl time{font-variant-numeric:tabular-nums;opacity:.75;margin-right:6px}
+
+/* outputs */
+.files{display:grid;gap:8px}
+.files .file{display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid var(--line);border-radius:12px;background:var(--panel-solid);transition:.15s}
+.files .file:hover{border-color:var(--line-strong)}
+.files .file a.name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink);text-decoration:none;font-weight:500}
+.files .file a.name:hover{color:var(--accent)}
+.ext{font-size:10.5px;font-weight:700;letter-spacing:.04em;border-radius:6px;padding:2px 6px;color:#fff;background:var(--rose)}
+.ext.pdf{background:var(--wine)}.ext.json{background:var(--ok)}.ext.md{background:var(--muted)}
+table.k6{width:100%;border-collapse:collapse;font-size:13px;margin-top:12px}table.k6 th{text-align:left;font-size:11.5px;color:var(--muted);font-weight:600;padding:4px 8px 4px 0}table.k6 td{padding:5px 8px 5px 0;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+.files a.dl{font-size:12.5px;font-weight:600;color:var(--accent-ink);background:var(--accent);border-radius:99px;padding:3px 12px;text-decoration:none;transition:.15s}
+.files a.dl:hover{filter:brightness(1.1)}
+.empty{color:var(--muted)}
+.bugbar{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;align-items:center;color:var(--muted);font-size:13px}
+.chip{border-radius:99px;padding:2px 10px;font-size:12px;font-weight:600;background:var(--accent-soft);border:1px solid var(--line);color:var(--ink)}
+.warn{background:color-mix(in srgb,var(--warn) 12%,transparent);border:1px solid color-mix(in srgb,var(--warn) 45%,transparent);color:var(--ink);border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:13px}
+code{background:var(--accent-soft);border-radius:6px;padding:1px 6px;font:12px ui-monospace,"SF Mono",Menlo,monospace}
+.fade{animation:fade .35s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo" aria-hidden="true">PF</div>
+  <h1>Perf Agent Team<small>Control Center</small></h1>
+  <button class="iconbtn" id="palette" aria-label="Switch colour palette">Mono</button>
+  <button class="iconbtn" id="theme" aria-label="Toggle light and dark">Theme</button>
+</header>
+<main>
+  <section>
+    <div class="card">
+      <h2>New run</h2>
+      <div id="health"></div>
+      <form id="form">
+        <label for="target">Project folder or site URL</label>
+        <input id="target" required placeholder="/Users/you/app  or  https://staging.example.com">
+        <label id="modelbl">Mode</label>
+        <div class="seg" role="radiogroup" aria-labelledby="modelbl">
+          <label><input type="radio" name="mode" value="strategy" checked><span>1 · Strategy</span></label>
+          <label><input type="radio" name="mode" value="run"><span>2 · Build &amp; run</span></label>
+        </div>
+        <p class="hint" id="modehint" style="font-size:12px;color:var(--muted);margin:8px 2px 0">Strategy analyses the target and writes a PDF for you to approve. Nothing is run. Choose Build &amp; run only after approving it.</p>
+        <label for="notes">Notes (optional)</label>
+        <textarea id="notes" placeholder="It runs at http://localhost:3000, start it with npm run dev. Target 200 concurrent users."></textarea>
+        <details class="adv" id="adv">
+          <summary>Run settings <span id="advsum" style="font-weight:400"></span></summary>
+          <div class="grid">
+            <div><label for="model">Model</label>
+              <select id="model"><option>sonnet</option><option>opus</option><option>haiku</option><option>fable</option><option value="default">Claude default</option><option value="__custom">Custom id…</option></select></div>
+            <div><label for="effort">Effort</label>
+              <select id="effort"><option>low</option><option>medium</option><option>high</option><option>xhigh</option><option>max</option><option value="default">Claude default</option></select></div>
+            <div class="full" id="custombox" hidden><label for="custom">Custom model id</label><input id="custom" placeholder="claude-sonnet-5-5" autocomplete="off"></div>
+            <div class="full"><label for="budget">Max budget (USD)</label><input id="budget" type="number" min="0.01" max="1000" step="0.01" placeholder="No limit"></div>
+            <p class="hint full">Applies to every agent in the run. Lower effort and smaller models are cheaper and quicker.</p>
+          </div>
+        </details>
+        <button class="primary" id="go">Start run</button>
+        <div id="formerr"></div>
+      </form>
+    </div>
+    <div class="runs-h">Recent runs</div>
+    <ul class="runs" id="runs" style="margin-top:0"></ul>
+  </section>
+  <section id="detail"><div class="card empty">Select a run, or start one.</div></section>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let selected = null;
+let shownId = null;
+const root = document.documentElement;
+try { const t = localStorage.getItem('perf-theme'); if (t) root.dataset.theme = t; } catch {}
+const setPalette = (p) => {
+  if (p === 'mono') root.dataset.palette = 'mono'; else delete root.dataset.palette;
+  $('palette').textContent = p === 'mono' ? 'Colour' : 'Mono';
+};
+try { setPalette(localStorage.getItem('perf-palette')); } catch { setPalette(null); }
+$('palette').onclick = () => {
+  const next = root.dataset.palette === 'mono' ? 'colour' : 'mono';
+  setPalette(next);
+  try { localStorage.setItem('perf-palette', next); } catch {}
+};
+$('theme').onclick = () => {
+  const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme = dark ? 'light' : 'dark';
+  try { localStorage.setItem('perf-theme', root.dataset.theme); } catch {}
+};
+
+const api = (p, opts = {}) => fetch(p, { ...opts, headers: { 'x-perf-ui': '1', 'content-type': 'application/json' } })
+  .then(async (r) => { const b = await r.json(); if (!r.ok) throw new Error(b.error || r.status); return b; });
+
+const sumSettings = () => {
+  $('custombox').hidden = $('model').value !== '__custom';
+  const m = $('model').value === '__custom' ? $('custom').value.trim() : $('model').value;
+  $('advsum').textContent = [m, $('effort').value, $('budget').value && '$' + $('budget').value].filter(Boolean).join(' · ');
+};
+['model', 'effort', 'budget', 'custom'].forEach((i) => $(i).addEventListener('input', sumSettings));
+
+$('form').onsubmit = async (e) => {
+  e.preventDefault();
+  $('go').disabled = true; $('formerr').textContent = '';
+  try {
+    const mode = document.querySelector('input[name="mode"]:checked').value;
+    if (mode === 'run' && !confirm('Start phase 2? This builds scripts and runs load tests against the target, so only continue if you approved the strategy.')) { $('go').disabled = false; return; }
+    const body = { target: $('target').value.trim(), mode, notes: $('notes').value.trim() };
+    const model = $('model').value === '__custom' ? $('custom').value.trim() : $('model').value;
+    if (model) body.model = model;
+    if ($('effort').value) body.effort = $('effort').value;
+    if ($('budget').value) body.maxBudgetUsd = Number($('budget').value);
+    const r = await api('/api/runs', { method: 'POST', body: JSON.stringify(body) });
+    selected = r.id; await refresh();
+  } catch (err) { $('formerr').textContent = err.message; }
+  $('go').disabled = false;
+};
+
+async function refresh() {
+  try {
+    const h = await api('/api/health');
+    $('health').innerHTML = (h.agentsInstalled ? '' : '<div class="warn">perf-lead agent not installed. Run ./install.sh from the repo root.</div>')
+      + (h.loggedIn === false ? `<div class="warn">Claude Code CLI is not logged in. Run <code>${esc(h.claudeBin)} auth login</code> in a terminal.</div>` : '');
+  } catch {}
+  const runs = await api('/api/runs');
+  if (!selected && runs[0]) selected = runs[0].id;
+  $('runs').innerHTML = runs.map((r) => `<li data-id="${esc(r.id)}" class="${r.id === selected ? 'sel' : ''}">
+    <div class="t">${esc(r.target)}</div>
+    <div class="s"><span class="pill ${esc(r.status)}">${esc(r.status)}</span> ${r.mode === 'run' ? 'build &amp; run' : 'strategy'} · ${new Date(r.startedAt).toLocaleString()}</div></li>`).join('');
+  document.querySelectorAll('.runs li').forEach((li) => li.onclick = () => { selected = li.dataset.id; refresh(); });
+  if (selected) await showDetail(selected);
+}
+
+async function showDetail(id) {
+  const d = await api('/api/runs/' + encodeURIComponent(id));
+  const cost = d.result?.costUsd != null ? '$' + d.result.costUsd.toFixed(2) : '–';
+  const fileUrl = (f) => `/api/runs/${encodeURIComponent(id)}/file?path=${encodeURIComponent(f.path)}`;
+  const files = d.reports.map((f) => {
+    const m = /\.(\w+)$/.exec(f.path); const ext = m ? m[1].toLowerCase() : '';
+    const dl = /^(pdf|md|json)$/.test(ext) ? `<a class="dl" href="${fileUrl(f)}&download=1" download>Download</a>` : '';
+    return `<div class="file"><span class="ext ${esc(ext)}">${esc(ext.toUpperCase() || 'FILE')}</span><a class="name" href="${fileUrl(f)}" target="_blank" rel="noopener">${esc(f.path.replace(/^perf\//, ''))}</a>${dl}</div>`;
+  }).join('');
+  const pf = d.perf;
+  const profs = pf && pf.profiles.length
+    ? `<table class="k6"><tr><th>Profile</th><th>p95 (ms)</th><th>Thresholds</th><th>Result</th></tr>${pf.profiles.map((p) => `<tr><td>${esc(p.profile)}</td><td>${p.p95 == null ? '–' : p.p95.toFixed(1)}</td><td>${p.thresholds - p.failed}/${p.thresholds} met</td><td><span class="pill ${p.failed ? 'failed' : 'succeeded'}">${p.failed ? 'fail' : 'pass'}</span></td></tr>`).join('')}</table>`
+    : '<div class="bugbar">No k6 results yet</div>';
+  const questions = pf && pf.openQuestions.length && d.mode === 'strategy'
+    ? `<h2 style="margin-top:16px">Open questions for approval</h2><ul style="margin:6px 0 0;padding-left:20px;color:var(--ink)">${pf.openQuestions.map((q) => `<li>${esc(typeof q === 'string' ? q : q.question || JSON.stringify(q))}</li>`).join('')}</ul>`
+    : '';
+  const doneAgents = d.agents.filter((a) => a.status === 'done').length;
+  const html = `
+    <div class="card ${shownId === id ? '' : 'fade'}">
+      <div class="row"><div class="grow"><h3 class="title">${esc(d.target)}</h3>
+        <div class="sub">${d.mode === 'run' ? 'Build &amp; run' : 'Strategy'} · ${esc(d.cwd)}</div>
+        ${(() => { const s = d.settings || {}; const c = [s.model && 'Model ' + s.model, s.effort && 'Effort ' + s.effort, s.maxBudgetUsd && 'Budget $' + s.maxBudgetUsd].filter(Boolean);
+          return c.length ? `<div class="bugbar" style="margin-top:8px">${c.map((x) => `<span class="chip">${esc(x)}</span>`).join('')}</div>` : ''; })()}</div>
+        <span class="pill ${esc(d.status)}">${esc(d.status)}</span>
+        ${d.status === 'running' ? '<button class="danger" id="cancel">Cancel</button>' : ''}</div>
+      <div class="stats">
+        <div class="stat"><b>${d.toolCalls}</b><small>Tool calls</small></div>
+        <div class="stat"><b>${d.agents.length}</b><small>Agents (${doneAgents} done)</small></div>
+        <div class="stat"><b>${pf && pf.findings != null ? pf.findings : '–'}</b><small>Findings</small></div>
+        <div class="stat"><b>${esc(cost)}</b><small>Cost</small></div>
+      </div>
+      <div class="agents">${d.agents.length ? d.agents.map((a) => `<div class="agent"><span class="dot ${esc(a.status)}" role="img" aria-label="${esc(a.status)}"></span><span>${esc(a.agent)}<small>${esc(a.description)}</small></span></div>`).join('') : '<span class="empty">No agents started yet.</span>'}</div>
+      ${d.error ? `<h2 style="margin-top:14px">Error</h2><pre>${esc(d.error)}</pre>` : ''}
+      <h2 style="margin-top:16px">Latest message</h2><pre>${esc(d.lastMessage) || '(none yet)'}</pre>
+    </div>
+    <div class="card ${shownId === id ? '' : 'fade'}"><h2>Outputs</h2>
+      <div class="files">${files || '<span class="empty">No report files yet. The strategy PDF appears here when phase 1 finishes.</span>'}</div>
+      ${profs}
+      ${questions}
+      ${d.analysis ? `<h2 style="margin-top:16px">Analysis</h2><pre>${esc(d.analysis)}</pre>` : ''}
+    </div>
+    <div class="card ${shownId === id ? '' : 'fade'}"><h2>Activity</h2>
+      <div class="tl">${d.timeline.slice().reverse().map((t) => `<div class="${t.kind === 'agent' ? 'agent-k' : ''}"><time>${new Date(t.at).toLocaleTimeString()}</time>${esc(t.text)}</div>`).join('') || '<span class="empty">Nothing yet.</span>'}</div>
+    </div>`;
+  $('detail').innerHTML = html;
+  shownId = id;
+  const c = $('cancel');
+  if (c) c.onclick = async () => { await api(`/api/runs/${encodeURIComponent(id)}/cancel`, { method: 'POST' }); refresh(); };
+}
+
+refresh();
+setInterval(() => refresh().catch(() => {}), 3000);
+</script>
+</body>
+</html>
