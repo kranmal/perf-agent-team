@@ -1,0 +1,30 @@
+{
+  "project": "{{PROJECT_NAME}}",
+  "mode": "codebase",
+  "target": "http://localhost:3000",
+  "date": "YYYY-MM-DD",
+  "executiveSummary": "",
+  "system": { "stack": "", "architecture": "", "dataStores": "", "externalDeps": "", "notes": "" },
+  "findings": [
+    { "area": "", "observation": "", "evidence": "file:line or URL", "perfRisk": "high|medium|low" }
+  ],
+  "journeys": [
+    { "name": "", "steps": [""], "trafficShare": "50%", "criticality": "high|medium|low", "endpoints": [""] }
+  ],
+  "workload": {
+    "expectedConcurrentUsers": 0, "peakRps": 0,
+    "basis": "measured | stated by user | assumption (say which)",
+    "assumptions": [""]
+  },
+  "slos": [
+    { "metric": "p95 latency", "target": "< 800 ms", "rationale": "" }
+  ],
+  "testPlan": [
+    { "profile": "smoke", "purpose": "", "load": "1 VU", "duration": "30s", "passCriteria": "", "why": "" }
+  ],
+  "environment": { "target": "", "dataNeeds": "", "safeguards": [""], "monitoring": [""] },
+  "tooling": { "tool": "k6", "why": "", "alternatives": "JMeter, Locust, Artillery" },
+  "risks": [{ "risk": "", "mitigation": "" }],
+  "openQuestions": [""],
+  "notInScope": [""]
+}
