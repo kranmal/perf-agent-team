@@ -54,6 +54,14 @@ cd perf && npm run dashboard     # http://localhost:4180
 
 Overview with SLO verdict, load runs and trends, browser measurements, the strategy, reports, and a Run tab that starts smoke, load, stress, spike, browser tests, compare, baseline and PDF build with a live console.
 
+## Control Center (same style as the QA Agent Team)
+
+```bash
+node interface/server.mjs --web     # http://127.0.0.1:4748
+```
+
+Start a strategy run or, after you approve it, a build-and-run on a folder or URL; follow the agents live and download the PDFs. Also an MCP server for Claude desktop. See [interface/README.md](interface/README.md).
+
 ## Browser tests (client-only apps)
 
 For apps with no backend, k6 only checks static delivery. The real risk is in the browser, so `examples/lendly/perf-project/scripts/browser/` shows Playwright scripts for cold load (LCP, TBT, CLS under CPU and network throttling), data-scale (seed storage with N records, time interactions) and storage-limit probing. Copy and adapt the selectors for your app.
