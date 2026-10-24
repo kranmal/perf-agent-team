@@ -151,11 +151,10 @@ function startRun({ target, mode = 'strategy', notes = '', model, effort, maxBud
   if (settings.effort) args.push('--effort', settings.effort);
   if (settings.maxBudgetUsd) args.push('--max-budget-usd', String(settings.maxBudgetUsd));
   // The wrapper records the exit code so status survives a server restart.
-  const child = spawn('/bin/sh', ['-c', '"$@"; echo $? > "$PERF_UI_EXIT_FILE"', 'sh', CLAUDE_BIN, ...args], {
+  const child = spawn(process.execPath, [path.join(HERE, 'run-wrapper.mjs'), path.join(dir, 'exit'), CLAUDE_BIN, ...args], {
     cwd,
     detached: true,
     stdio: ['ignore', out, err],
-    env: { ...process.env, PERF_UI_EXIT_FILE: path.join(dir, 'exit') },
   });
   child.on('error', (e) => fs.writeFileSync(path.join(dir, 'exit'), `spawn-error: ${e.message}`));
   child.unref();
